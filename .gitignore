@@ -58,7 +58,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+<<<<<<< HEAD
 .pnpm-debug.log*
+=======
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -95,8 +98,13 @@ build/Release
 node_modules/
 jspm_packages/
 
+<<<<<<< HEAD
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
+=======
+# TypeScript v1 declaration files
+typings/
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
 
 # TypeScript cache
 *.tsbuildinfo
@@ -107,9 +115,12 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
+<<<<<<< HEAD
 # Optional stylelint cache
 .stylelintcache
 
+=======
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -125,6 +136,7 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
+<<<<<<< HEAD
 # dotenv environment variable files
 .env
 .env.development.local
@@ -139,6 +151,17 @@ web_modules/
 # Next.js build output
 .next
 out
+=======
+# dotenv environment variables file
+.env
+.env.test
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# Next.js build output
+.next
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
 
 # Nuxt.js build / generate output
 .nuxt
@@ -146,19 +169,26 @@ dist
 
 # Gatsby files
 .cache/
+<<<<<<< HEAD
 # Comment in the public line in if your project uses Gatsby and not Next.js
+=======
+# Comment in the public line in if your project uses Gatsby and *not* Next.js
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
 # vuepress build output
 .vuepress/dist
 
+<<<<<<< HEAD
 # vuepress v2.x temp and cache directory
 .temp
 
 # Docusaurus cache and generated files
 .docusaurus
 
+=======
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
 # Serverless directories
 .serverless/
 
@@ -170,6 +200,7 @@ dist
 
 # TernJS port file
 .tern-port
+<<<<<<< HEAD
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
@@ -212,3 +243,5 @@ dist
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,node,git
+=======
+>>>>>>> bbebf400b3d01ac87d9e0ecaaa793556b1e01a77
