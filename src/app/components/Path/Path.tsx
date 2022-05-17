@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Path(props: { to: string; children: string; height?: string }) {
+function Path(props: {
+  to: string;
+  children: string;
+  height?: string;
+  borderBottom?: string;
+}) {
   // prop destruction
   const { to, children } = props;
 
@@ -33,9 +38,6 @@ const StyledLink = styled(Link)<{
 }>`
   color: black;
   text-decoration: none;
-  &:hover {
-    color: #b261cd;
-  }
   ${(props) => (props.height ? `height: ${props.height}` : "")};
 `;
 
