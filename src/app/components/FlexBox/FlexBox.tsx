@@ -15,6 +15,7 @@ type FlexBoxProps = {
   width: string;
   height?: string;
   border?: string;
+  borderBottom?: string;
   padding?: string;
   margin?: string;
   boxSizing?: string;
@@ -45,11 +46,14 @@ FlexBox.defaultProps = {
   width: "100%",
   height: "100%",
   direction: "row",
+  margin: "0",
+  padding: "0",
 };
 
 const StyledBox = styled.div<FlexBoxProps>`
   display: flex;
   box-sizing: border-box;
+  ${(props) => (props.boxSizing ? `box-sizing: ${props.boxSizing}` : "")};
   ${(props) => (props.direction ? `flex-direction: ${props.direction}` : "")};
   ${(props) =>
     props.backgroundColor ? `background-color: ${props.backgroundColor}` : ""};
@@ -67,6 +71,8 @@ const StyledBox = styled.div<FlexBoxProps>`
   ${(props) => (props.width ? `width: ${props.width}` : "")};
   ${(props) => (props.height ? `height: ${props.height}` : "")};
   ${(props) => (props.border ? `border: ${props.border}` : "")};
+  ${(props) =>
+    props.borderBottom ? `border-bottom: ${props.borderBottom}` : ""};
   ${(props) => (props.margin ? `margin: ${props.margin}` : "")};
   ${(props) => (props.padding ? `padding: ${props.padding}` : "")};
   ${(props) => (props.radius ? `border-radius: ${props.radius}` : "")};
