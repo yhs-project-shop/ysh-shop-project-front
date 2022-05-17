@@ -4,7 +4,7 @@ import styled from "styled-components";
 type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLElement>;
   type: "button" | "submit" | "reset";
-  children: string;
+  children: string | React.ReactElement;
   name?: string;
   width?: string;
   height?: string;
