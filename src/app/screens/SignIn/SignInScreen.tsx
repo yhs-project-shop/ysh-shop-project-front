@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Button, FlexBox, Input, Title } from "../../components";
 import { Form, Text } from "../../components";
 import { userActions } from "../../redux/modules/user";
@@ -9,6 +10,7 @@ function SignInScreen() {
 
   // lib hooks
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // state, ref, querystring hooks
   const [inputData, setInputData] = useState({
@@ -80,6 +82,9 @@ function SignInScreen() {
         로그인
       </Button>
       <Button
+        onClick={() => {
+          history.push("/signup");
+        }}
         backgroundColor="white"
         fontSize="18px"
         margin="30px auto 0"
