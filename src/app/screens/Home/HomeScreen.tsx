@@ -50,15 +50,15 @@ const StyledDiv = styled.div`
 `;
 
 const Item2 = styled.div`
-  border: 2px solid red;
+  border: 2px solid black;
 `;
 
 const Item3 = styled.div`
-  border: 2px solid blue;
+  border: 2px solid black;
 `;
 
 const Item4 = styled.div`
-  border: 2px solid #ff12cc;
+  border: 2px solid black;
 `;
 
 const Content2 = styled.div`
