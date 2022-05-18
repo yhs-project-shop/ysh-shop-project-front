@@ -18,8 +18,10 @@ function Header() {
   // lib hooks
   const dispatch = useDispatch();
   const isLogin = useSelector((state: RootState) => state.user.is_login);
+  const router = useSelector((state: RootState) => state.router);
 
   // state, ref, querystring hooks
+  const [location, setLocation] = useState("");
   const [loginState, setLoginState] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
@@ -33,19 +35,15 @@ function Header() {
   // effects
   useEffect(() => {
     setLoginState(isLogin);
-    console.log("유즈이펙 안에서 isLogin: ", isLogin);
   }, [isLogin]);
 
   useEffect(() => {
-    console.log("isScroll: ", isScroll);
-  }, [isScroll]);
-
-  useEffect(() => {}, [isSearch]);
+    setLocation(router.location.pathname);
+  }, [router.location.pathname]);
 
   // handlers
   const handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch(userActions.signOut());
-    alert("로그아웃 되었습니다!");
   };
 
   const handleScroll = (e: any) => {
@@ -58,7 +56,6 @@ function Header() {
   };
 
   const handleSearch = (e: any) => {
-    console.log("검색버튼누름!!!");
     if (!isSearch) {
       setIsSearch(true);
     } else {
@@ -67,9 +64,8 @@ function Header() {
   };
 
   window.addEventListener("scroll", handleScroll);
-  console.log("헤더에서 로그인 상태: ", isLogin);
 
-  return isScroll || (isSearch && !isScroll) ? (
+  return isScroll || (isSearch && !isScroll) || location === "/signin" ? (
     <Container
       position="sticky"
       top="0"
