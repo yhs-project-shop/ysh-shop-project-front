@@ -44,7 +44,7 @@ function SignInScreen() {
       onSubmit={handleSubmit}
       width="350px"
       height="400px"
-      margin=" 80px auto"
+      margin=" 30px auto"
     >
       <Title type="h1" size="39px" color="#7001f7">
         LOGIN
