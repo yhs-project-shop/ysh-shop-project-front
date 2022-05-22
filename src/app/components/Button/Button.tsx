@@ -48,6 +48,7 @@ Button.defaultProps = {
   boxSizing: "border-box",
   border: "none",
   color: "white",
+  backgroundColor: "white",
 };
 
 const StyledButton = styled.button<ButtonProps>`
