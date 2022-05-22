@@ -8,9 +8,9 @@ import { FlexBox } from "../FlexBox";
 import { Path } from "../Path";
 import { Image } from "../Image";
 import { Input } from "../Input";
-import logo from "../../../assets/logo.png";
-import search from "../../../assets/icon_search.png";
-import close from "../../../assets/icon_close.png";
+import logo from "../../../assets/logo.webp";
+import search from "../../../assets/icon_search.webp";
+import close from "../../../assets/icon_close.webp";
 
 function Header() {
   // prop destruction
