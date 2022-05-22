@@ -11,6 +11,10 @@ import { Input } from "../Input";
 import logo from "../../../assets/logo.webp";
 import search from "../../../assets/icon_search.webp";
 import close from "../../../assets/icon_close.webp";
+import mypage from "../../../assets/icon_profile.webp";
+import like from "../../../assets/icon_like.webp";
+import cart from "../../../assets/icon_cart.webp";
+import signin from "../../../assets/icon_signin.webp";
 
 function Header() {
   // prop destruction
@@ -80,7 +84,7 @@ function Header() {
         alignItems="flex-end"
       >
         <MenuList itemNum="6" width="990px">
-          <Image src={logo} width="154px" alt="Tend로고" />
+          <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
           {isSearch ? (
             <>
               <SearchInput
@@ -91,7 +95,7 @@ function Header() {
                 padding="8.9px 268px 8.5px 9.3px"
                 radius="10px"
                 border="solid 2px black"
-                margin="5px 0 0 0"
+                margin="2px 0 0 0"
               />
             </>
           ) : (
@@ -101,35 +105,35 @@ function Header() {
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path to="/" children="SHOES" height="50px" />
+                <Path url="/" children="SHOES" height="50px" />
               </MenuItem>
               <MenuItem
                 size="39px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path to="/" children="HEADWEAR" height="50px" />
+                <Path url="/" children="HEADWEAR" height="50px" />
               </MenuItem>
               <MenuItem
                 size="39px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path to="/" children="WE'ARE" height="50px" />
+                <Path url="/" children="WE'ARE" height="50px" />
               </MenuItem>
               <MenuItem
                 size="18px"
                 weight="500"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path to="/" children="LOOKBOOK" />
+                <Path url="/" children="LOOKBOOK" />
               </MenuItem>
               <MenuItem
                 size="18px"
                 weight="500"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path to="/" children="EVENT" />
+                <Path url="/" children="EVENT" />
               </MenuItem>
             </>
           )}
@@ -169,16 +173,40 @@ function Header() {
         height="auto"
         justifyContent="space-between"
       >
-        <Image src={logo} width="154px" alt="Tend로고" />
+        <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
         <MenuList itemNum="4">
           <MenuItem size="10px" weight="500" height="30px">
-            <Path to="/" children="MY PAGE" />
+            <Path url="/" text="MY PAGE">
+              <Image
+                src={mypage}
+                alt="마이페이지"
+                height="24px"
+                width="24px"
+                margin="0 4px 0 0"
+              />
+            </Path>
           </MenuItem>
           <MenuItem size="10px" weight="500" height="30px">
-            <Path to="/" children="MY HEART" />
+            <Path url="/" text="MY HEART">
+              <Image
+                src={like}
+                alt="찜한목록"
+                height="24px"
+                width="24px"
+                margin="0 4px 0 0"
+              />
+            </Path>
           </MenuItem>
           <MenuItem size="10px" weight="500" height="30px">
-            <Path to="/" children="MY CART" />
+            <Path url="/" text="MY CART">
+              <Image
+                src={cart}
+                alt="장바구니"
+                height="24px"
+                width="24px"
+                margin="0 4px 0 0"
+              />
+            </Path>
           </MenuItem>
           <MenuItem size="10px" weight="500" height="30px">
             {loginState ? (
@@ -191,7 +219,17 @@ function Header() {
                 로그아웃
               </Button>
             ) : (
-              <Path to="/signin" children="LOGIN" />
+              <>
+                <Path url="/signin" text="LOGIN">
+                  <Image
+                    src={signin}
+                    alt="로그인"
+                    height="24px"
+                    width="24px"
+                    margin="0 4px 0 0"
+                  />
+                </Path>
+              </>
             )}
           </MenuItem>
         </MenuList>
@@ -209,35 +247,35 @@ function Header() {
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path to="/" children="SHOES" height="50px" />
+            <Path url="/" children="SHOES" height="50px" />
           </MenuItem>
           <MenuItem
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path to="/" children="HEADWEAR" height="50px" />
+            <Path url="/" children="HEADWEAR" height="50px" />
           </MenuItem>
           <MenuItem
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path to="/" children="WE'ARE" height="50px" />
+            <Path url="/" children="WE'ARE" height="50px" />
           </MenuItem>
           <MenuItem
             size="18px"
             weight="500"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path to="/" children="LOOKBOOK" />
+            <Path url="/" children="LOOKBOOK" />
           </MenuItem>
           <MenuItem
             size="18px"
             weight="500"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path to="/" children="EVENT" />
+            <Path url="/" children="EVENT" />
           </MenuItem>
         </MenuList>
         <Button
