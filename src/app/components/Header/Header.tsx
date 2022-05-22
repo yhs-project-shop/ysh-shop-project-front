@@ -84,7 +84,9 @@ function Header() {
         alignItems="flex-end"
       >
         <MenuList itemNum="6" width="990px">
-          <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
+          <Path url="/" height="43.4px">
+            <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
+          </Path>
           {isSearch ? (
             <>
               <SearchInput
@@ -105,21 +107,21 @@ function Header() {
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path url="/" children="SHOES" height="50px" />
+                <Path url="/" children="SHOES" height="40px" />
               </MenuItem>
               <MenuItem
                 size="39px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path url="/" children="HEADWEAR" height="50px" />
+                <Path url="/" children="HEADWEAR" height="40px" />
               </MenuItem>
               <MenuItem
                 size="39px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
-                <Path url="/" children="WE'ARE" height="50px" />
+                <Path url="/" children="WE'ARE" height="40px" />
               </MenuItem>
               <MenuItem
                 size="18px"
@@ -173,7 +175,9 @@ function Header() {
         height="auto"
         justifyContent="space-between"
       >
-        <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
+        <Path url="/" height="43.4px">
+          <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
+        </Path>
         <MenuList itemNum="4">
           <MenuItem size="10px" weight="500" height="30px">
             <Path url="/" text="MY PAGE">
@@ -247,21 +251,21 @@ function Header() {
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path url="/" children="SHOES" height="50px" />
+            <Path url="/" children="SHOES" height="40px" />
           </MenuItem>
           <MenuItem
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path url="/" children="HEADWEAR" height="50px" />
+            <Path url="/" children="HEADWEAR" height="40px" />
           </MenuItem>
           <MenuItem
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
           >
-            <Path url="/" children="WE'ARE" height="50px" />
+            <Path url="/" children="WE'ARE" height="40px" />
           </MenuItem>
           <MenuItem
             size="18px"
