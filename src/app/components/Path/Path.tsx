@@ -44,6 +44,8 @@ const StyledLink = styled.div<{
   &:hover {
     cursor: pointer;
   }
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
