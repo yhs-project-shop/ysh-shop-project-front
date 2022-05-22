@@ -1,17 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 function Path(props: {
-  to: string;
-  children: string;
+  url: string;
+  text?: string;
+  children?: string | React.ReactElement;
   height?: string;
   borderBottom?: string;
 }) {
   // prop destruction
-  const { to, children } = props;
+  const { url, children, text } = props;
 
   // lib hooks
+  const history = useHistory();
 
   // state, ref, querystring hooks
 
@@ -24,18 +26,27 @@ function Path(props: {
   // effects
 
   // handlers
+  const handleLink = (e: React.MouseEvent<HTMLDivElement>) => {
+    history.push(`${url}`);
+  };
+
   return (
-    <StyledLink {...props} to={to}>
+    <StyledLink {...props} onClick={handleLink}>
       {children}
+      {text}
     </StyledLink>
   );
 }
 
-const StyledLink = styled(Link)<{
-  to: string;
-  children: string;
+const StyledLink = styled.div<{
   height?: string;
 }>`
+  &:hover {
+    cursor: pointer;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: black;
   text-decoration: none;
   ${(props) => (props.height ? `height: ${props.height}` : "")};
