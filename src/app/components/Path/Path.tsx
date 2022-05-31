@@ -8,6 +8,7 @@ function Path(props: {
   children?: string | React.ReactElement;
   height?: string;
   borderBottom?: string;
+  margin?: string;
 }) {
   // prop destruction
   const { url, children, text } = props;
@@ -40,6 +41,7 @@ function Path(props: {
 
 const StyledLink = styled.div<{
   height?: string;
+  margin?: string;
 }>`
   &:hover {
     cursor: pointer;
@@ -52,6 +54,7 @@ const StyledLink = styled.div<{
   color: black;
   text-decoration: none;
   ${(props) => (props.height ? `height: ${props.height}` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin}` : "")};
 `;
 
 export { Path };
