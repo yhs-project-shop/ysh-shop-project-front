@@ -45,7 +45,6 @@ function HomeScreen() {
 const StyledDiv = styled.div`
   margin: 0 auto;
   width: 1200px;
-  border: 2px solid black;
   height: auto;
 `;
 
