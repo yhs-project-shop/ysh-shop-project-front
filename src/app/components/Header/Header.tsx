@@ -38,6 +38,10 @@ function Header() {
 
   // effects
   useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     setLoginState(isLogin);
   }, [isLogin]);
 
@@ -46,6 +50,8 @@ function Header() {
   }, [router.location.pathname]);
 
   // handlers
+  const handleLogo = (e: React.MouseEvent<HTMLDivElement>) => {};
+
   const handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch(userActions.signOut());
   };
@@ -67,8 +73,6 @@ function Header() {
     }
   };
 
-  window.addEventListener("scroll", handleScroll);
-
   return isScroll || (isSearch && !isScroll) || location === "/signin" ? (
     <Container
       position="sticky"
@@ -77,83 +81,76 @@ function Header() {
       transform="translateY(-100px)"
     >
       <FlexBox
-        width="1200px"
+        width="1024px"
         boxSizing="content-box"
         padding="0 0 23.6px 0"
         justifyContent="space-between"
         alignItems="flex-end"
       >
-        <MenuList itemNum="6" width="990px">
-          <Path url="/" height="43.4px">
+        <MenuList itemNum="6" columnGap="40px">
+          <Path url="/" height="43.4px" margin={isSearch ? "0 0 2.5px 0" : ""}>
             <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
           </Path>
           {isSearch ? (
-            <>
-              <SearchInput
-                type="text"
-                placeholder="| Search"
-                width="385px"
-                height="43px"
-                padding="8.9px 268px 8.5px 9.3px"
-                radius="10px"
-                border="solid 2px black"
-                margin="2px 0 0 0"
-              />
-            </>
+            <SearchInput
+              type="text"
+              placeholder="| Search"
+              width="385px"
+              height="43px"
+              padding="8.9px 268px 8.5px 9.3px"
+              radius="10px"
+              border="solid 2px black"
+            />
           ) : (
             <>
               <MenuItem
-                size="39px"
+                size="25px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
                 <Path url="/" children="SHOES" height="40px" />
               </MenuItem>
               <MenuItem
-                size="39px"
+                size="25px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
                 <Path url="/" children="HEADWEAR" height="40px" />
               </MenuItem>
               <MenuItem
-                size="39px"
+                size="25px"
                 weight="600"
                 hoverBorderBottom="6px solid #7001f7"
               >
                 <Path url="/" children="WE'ARE" height="40px" />
               </MenuItem>
               <MenuItem
-                size="18px"
+                size="12px"
                 weight="500"
                 hoverBorderBottom="6px solid #7001f7"
+                paddingBottom="9px"
               >
                 <Path url="/" children="LOOKBOOK" />
               </MenuItem>
               <MenuItem
-                size="18px"
+                size="12px"
                 weight="500"
                 hoverBorderBottom="6px solid #7001f7"
+                paddingBottom="9px"
               >
                 <Path url="/" children="EVENT" />
               </MenuItem>
             </>
           )}
         </MenuList>
-        <Button
-          width="40px"
-          height="40px"
-          margin="0 0 10px 0"
-          padding="0"
-          onClick={handleSearch}
-        >
+        <Button width="40px" height="40px" padding="0" onClick={handleSearch}>
           {isSearch ? (
             <Image
               src={close}
               width="40px"
               height="40px"
               alt="검색창닫기아이콘"
-              margin="0 0 12px 0"
+              margin="-12px 0 0 0"
             />
           ) : (
             <Image
@@ -161,7 +158,7 @@ function Header() {
               width="40px"
               height="40px"
               alt="검색아이콘"
-              margin="0 0 12px 0"
+              margin="-12px 0 0 0"
             />
           )}
         </Button>
@@ -170,16 +167,17 @@ function Header() {
   ) : (
     <Container id="main">
       <FlexBox
-        margin="50px 0 0 0"
-        width="1200px"
-        height="auto"
+        margin="33.4px 0 0 0"
+        width="1024px"
+        height="43.4px"
         justifyContent="space-between"
+        alignItems="flex-end"
       >
         <Path url="/" height="43.4px">
           <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
         </Path>
-        <MenuList itemNum="4">
-          <MenuItem size="10px" weight="500" height="30px">
+        <MenuList itemNum="4" height="43.4px" width="353px">
+          <MenuItem size="10px" weight="500" height="30px" width="80px">
             <Path url="/" text="MY PAGE">
               <Image
                 src={mypage}
@@ -190,7 +188,7 @@ function Header() {
               />
             </Path>
           </MenuItem>
-          <MenuItem size="10px" weight="500" height="30px">
+          <MenuItem size="10px" weight="500" height="30px" width="80px">
             <Path url="/" text="MY HEART">
               <Image
                 src={like}
@@ -201,7 +199,7 @@ function Header() {
               />
             </Path>
           </MenuItem>
-          <MenuItem size="10px" weight="500" height="30px">
+          <MenuItem size="10px" weight="500" height="30px" width="80px">
             <Path url="/" text="MY CART">
               <Image
                 src={cart}
@@ -240,16 +238,17 @@ function Header() {
       </FlexBox>
       <FlexBox
         margin="39.6px 0 0 0"
-        width="1200px"
+        width="1024px"
         height="auto"
         justifyContent="space-between"
         alignItems="flex-end"
       >
-        <MenuList itemNum="5">
+        <MenuList itemNum="5" columnGap="40px">
           <MenuItem
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
+            paddingBottom="6px"
           >
             <Path url="/" children="SHOES" height="40px" />
           </MenuItem>
@@ -257,6 +256,7 @@ function Header() {
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
+            paddingBottom="6px"
           >
             <Path url="/" children="HEADWEAR" height="40px" />
           </MenuItem>
@@ -264,6 +264,7 @@ function Header() {
             size="39px"
             weight="600"
             hoverBorderBottom="6px solid #7001f7"
+            paddingBottom="6px"
           >
             <Path url="/" children="WE'ARE" height="40px" />
           </MenuItem>
@@ -271,6 +272,7 @@ function Header() {
             size="18px"
             weight="500"
             hoverBorderBottom="6px solid #7001f7"
+            paddingBottom="6px"
           >
             <Path url="/" children="LOOKBOOK" />
           </MenuItem>
@@ -278,24 +280,19 @@ function Header() {
             size="18px"
             weight="500"
             hoverBorderBottom="6px solid #7001f7"
+            paddingBottom="6px"
           >
             <Path url="/" children="EVENT" />
           </MenuItem>
         </MenuList>
-        <Button
-          width="40px"
-          height="40px"
-          margin="0 0 10px 0"
-          padding="0"
-          onClick={handleSearch}
-        >
+        <Button width="40px" height="40px" padding="0" onClick={handleSearch}>
           {isSearch ? (
             <Image
               src={close}
               width="40px"
               height="40px"
               alt="검색창닫기아이콘"
-              margin="0 0 12px 0"
+              margin="-12px 0 0 0"
             />
           ) : (
             <Image
@@ -303,7 +300,7 @@ function Header() {
               width="40px"
               height="40px"
               alt="검색아이콘"
-              margin="0 0 12px 0"
+              margin="-12px 0 0 0"
             />
           )}
         </Button>
@@ -335,30 +332,37 @@ const Container = styled.div<{
     props.borderBottom ? `border-bottom: ${props.borderBottom};` : ""};
 `;
 
-const MenuList = styled.ul<{ itemNum: string; width?: string }>`
+const MenuList = styled.ul<{
+  itemNum: string;
+  width?: string;
+  height?: string;
+  columnGap?: string;
+}>`
+  padding: 0;
+  margin: 0;
+  list-style: none;
   display: grid;
   ${(props) =>
     props.itemNum
       ? `grid-template-columns: repeat(${props.itemNum}, auto)`
       : ""};
   ${(props) => (props.width ? `width:${props.width}` : "")};
-  grid-template-rows: 60px 1fr;
-  margin: 0;
-  padding: 0;
-  column-gap: 40px;
-  list-style: none;
+  ${(props) => (props.height ? `height:${props.height}` : "")};
+  ${(props) => (props.columnGap ? `column-gap:${props.columnGap}` : "")};
 `;
 
 const MenuItem = styled.li<{
   size?: string;
   weight?: string;
+  width?: string;
   height?: string;
   hoverBorderBottom?: string;
+  paddingBottom?: string;
 }>`
   width: auto;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 6px;
+  justify-content: flex-end;
   border-bottom: 6px solid transparent;
   &:hover {
     ${(props) =>
@@ -369,6 +373,9 @@ const MenuItem = styled.li<{
   ${(props) => (props.size ? `font-size: ${props.size}` : "")};
   ${(props) => (props.weight ? `font-weight: ${props.weight}` : "")};
   ${(props) => (props.height ? `height: ${props.height}` : "")};
+  ${(props) => (props.width ? `width: ${props.width}` : "")};
+  ${(props) =>
+    props.paddingBottom ? `padding-bottom: ${props.paddingBottom}` : ""};
 `;
 
 const SearchInput = styled(Input)`
