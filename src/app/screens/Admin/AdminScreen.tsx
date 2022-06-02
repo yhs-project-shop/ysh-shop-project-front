@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Button,
   FlexBox,
@@ -8,6 +9,7 @@ import {
   Title,
 } from "../../components";
 import { TextBox } from "../../components/TextBox";
+import { productActions } from "../../redux/modules/product";
 
 type ProductForm = {
   name: string;
@@ -22,6 +24,7 @@ function AdminScreen() {
   // prop destruction
 
   // lib hooks
+  const dispatch = useDispatch();
 
   // state, ref, querystring hooks
   const [inputData, setInputData] = useState<ProductForm>({
@@ -50,28 +53,23 @@ function AdminScreen() {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    dispatch(productActions.addDB(inputData));
     console.log("제품등록 폼 제출 완료~!");
   };
 
   console.log("제품등록 폼: ", inputData);
 
   return (
-    <Form
-      method="post"
-      onSubmit={handleSubmit}
-      width="90%"
-      height="600px"
-      margin=" 50px auto"
-    >
+    <Form method="post" width="90%" height="700px" margin=" 0 auto">
       <Title type="h2">제품등록</Title>
       <FlexBox height="auto">
         <FlexBox padding="30px" justifyContent="center" alignItems="center">
           <ImageUpload />
         </FlexBox>
         <FlexBox
-          height="500px"
+          height="600px"
           direction="column"
           justifyContent="space-between"
           alignItems="center"
@@ -109,6 +107,14 @@ function AdminScreen() {
             placeholder="가격"
             onChange={handleChange}
           />
+          <Input
+            isLabel={true}
+            labelName="이미지"
+            name="img"
+            type="text"
+            placeholder="이미지"
+            onChange={handleChange}
+          />
           <TextBox
             isLabel={true}
             labelName="상세 설명"
@@ -121,6 +127,7 @@ function AdminScreen() {
             fontSize="1.2rem"
             margin="30px auto 0"
             type="submit"
+            onClick={handleSubmit}
           >
             제품 등록
           </Button>
