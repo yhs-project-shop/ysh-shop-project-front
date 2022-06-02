@@ -73,7 +73,10 @@ function Header() {
     }
   };
 
-  return isScroll || (isSearch && !isScroll) || location === "/signin" ? (
+  return isScroll ||
+    (isSearch && !isScroll) ||
+    location === "/signin" ||
+    location === "/admin" ? (
     <Container
       position="sticky"
       top="0"
@@ -178,7 +181,7 @@ function Header() {
         </Path>
         <MenuList itemNum="4" height="43.4px" width="353px">
           <MenuItem size="10px" weight="500" height="30px" width="80px">
-            <Path url="/" text="MY PAGE">
+            <Path url="/admin" text="MY PAGE">
               <Image
                 src={mypage}
                 alt="마이페이지"
