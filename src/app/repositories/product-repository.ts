@@ -11,13 +11,13 @@ const productRepository = {
       return res;
     });
   },
-  getAll(category: string) {
-    return httpClient.get(`/products/${category}`).then((res) => {
+  getAll() {
+    return httpClient.get(`/products`).then((res) => {
       return res;
     });
   },
   getOne(productId: number) {
-    return httpClient.get(`/product/${productId}`).then((res) => {
+    return httpClient.get(`/products/detail/${productId}`).then((res) => {
       return res;
     });
   },
