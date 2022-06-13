@@ -17,8 +17,8 @@ import cart from "../../../assets/icon_cart.webp";
 import signin from "../../../assets/icon_signin.webp";
 
 const MenuItem = (props: {
-  size: string;
-  weight: string;
+  size?: string;
+  weight?: string;
   paddingBottom?: string;
   children: ReactElement;
 }) => {
@@ -108,7 +108,7 @@ function Header() {
         justifyContent="space-between"
         alignItems="flex-end"
       >
-        <MenuList itemNum="6" columnGap="40px">
+        <MenuList itemNum="8" columnGap="40px">
           <Path url="/" height="43.4px" margin={isSearch ? "0 0 2.5px 0" : ""}>
             <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
           </Path>
@@ -139,6 +139,25 @@ function Header() {
               <MenuItem size="12px" weight="500" paddingBottom="9px">
                 <Path url="/" children="EVENT" />
               </MenuItem>
+              {/* NOTE: 장바구니, 로그인 아이콘 위치 수정하기 */}
+              <Path url="/">
+                <Image
+                  src={cart}
+                  alt="장바구니"
+                  height="24px"
+                  width="24px"
+                  margin="0 4px 0 0"
+                />
+              </Path>
+              <Path url="/signin">
+                <Image
+                  src={signin}
+                  alt="로그인"
+                  height="24px"
+                  width="24px"
+                  margin="0 4px 0 0"
+                />
+              </Path>
             </>
           )}
         </MenuList>
