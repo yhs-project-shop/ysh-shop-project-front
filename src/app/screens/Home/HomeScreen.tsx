@@ -94,7 +94,11 @@ function HomeScreen() {
         <DetailText />
         <DetailButton />
       </FlexBox>
-      <Content2></Content2>
+      <Content2>
+        <Item></Item>
+        <Item></Item>
+        <Item></Item>
+      </Content2>
     </StyledDiv>
   );
 }
@@ -103,6 +107,10 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   width: 1200px;
   height: auto;
+`;
+
+const Item = styled.div`
+  border: 1px solid black;
 `;
 
 const Content = styled.div`
@@ -118,6 +126,7 @@ const Content1 = styled(Content)`
 const Content2 = styled(Content)`
   height: 400px;
   grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 410px;
 `;
 
 export { HomeScreen };
