@@ -75,14 +75,8 @@ function HomeScreen() {
           src={ready}
           alt="메인 이미지_준비자세를 취한 사람"
           width="592px"
-          margin="0 auto 0 0"
         />
-        <Image
-          src={youth}
-          alt="메인 이미지_청년들"
-          width="592px"
-          margin="0 0 0 auto"
-        />
+        <Image src={youth} alt="메인 이미지_청년들" width="592px" />
       </Content1>
       <FlexBox
         padding="20px 0 0 0"
@@ -118,14 +112,15 @@ const Content = styled.div`
   grid-auto-flow: dense;
   place-items: stretch stretch;
   box-sizing: border-box;
+  justify-content: space-between;
 `;
 const Content1 = styled(Content)`
   height: 592px;
-  grid-template-columns: repeat(auto-fill, minmax(50%, auto));
+  grid-template-columns: repeat(2, 592px);
 `;
 const Content2 = styled(Content)`
   height: 400px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 390px);
   margin-bottom: 410px;
 `;
 
