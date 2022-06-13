@@ -68,8 +68,6 @@ function Header() {
   }, [router.location.pathname]);
 
   // handlers
-  const handleLogo = (e: React.MouseEvent<HTMLDivElement>) => {};
-
   const handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch(userActions.signOut());
   };
