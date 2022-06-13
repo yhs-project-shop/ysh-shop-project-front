@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { userActions } from "../../redux/modules/user";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -15,6 +15,24 @@ import mypage from "../../../assets/icon_profile.webp";
 import like from "../../../assets/icon_like.webp";
 import cart from "../../../assets/icon_cart.webp";
 import signin from "../../../assets/icon_signin.webp";
+
+const MenuItem = (props: {
+  size: string;
+  weight: string;
+  paddingBottom?: string;
+  children: ReactElement;
+}) => {
+  return (
+    <Item
+      size={props.size}
+      weight={props.weight}
+      hoverBorderBottom="6px solid #7001f7"
+      paddingBottom={props.paddingBottom ? props.paddingBottom : ""}
+    >
+      {props.children}
+    </Item>
+  );
+};
 
 function Header() {
   // prop destruction
@@ -106,41 +124,19 @@ function Header() {
             />
           ) : (
             <>
-              <MenuItem
-                size="25px"
-                weight="600"
-                hoverBorderBottom="6px solid #7001f7"
-              >
+              <MenuItem size="25px" weight="600">
                 <Path url="/" children="SHOES" height="40px" />
               </MenuItem>
-              <MenuItem
-                size="25px"
-                weight="600"
-                hoverBorderBottom="6px solid #7001f7"
-              >
+              <MenuItem size="25px" weight="600">
                 <Path url="/" children="HEADWEAR" height="40px" />
               </MenuItem>
-              <MenuItem
-                size="25px"
-                weight="600"
-                hoverBorderBottom="6px solid #7001f7"
-              >
+              <MenuItem size="25px" weight="600">
                 <Path url="/" children="WE'ARE" height="40px" />
               </MenuItem>
-              <MenuItem
-                size="12px"
-                weight="500"
-                hoverBorderBottom="6px solid #7001f7"
-                paddingBottom="9px"
-              >
+              <MenuItem size="12px" weight="500" paddingBottom="9px">
                 <Path url="/" children="LOOKBOOK" />
               </MenuItem>
-              <MenuItem
-                size="12px"
-                weight="500"
-                hoverBorderBottom="6px solid #7001f7"
-                paddingBottom="9px"
-              >
+              <MenuItem size="12px" weight="500" paddingBottom="9px">
                 <Path url="/" children="EVENT" />
               </MenuItem>
             </>
@@ -180,7 +176,7 @@ function Header() {
           <Image src={logo} width="154px" height="43.4px" alt="Tend로고" />
         </Path>
         <MenuList itemNum="4" height="43.4px" width="353px">
-          <MenuItem size="10px" weight="500" height="30px" width="80px">
+          <Item size="10px" weight="500" height="30px" width="80px">
             <Path url="/admin" text="MY PAGE">
               <Image
                 src={mypage}
@@ -190,8 +186,8 @@ function Header() {
                 margin="0 4px 0 0"
               />
             </Path>
-          </MenuItem>
-          <MenuItem size="10px" weight="500" height="30px" width="80px">
+          </Item>
+          <Item size="10px" weight="500" height="30px" width="80px">
             <Path url="/" text="MY HEART">
               <Image
                 src={like}
@@ -201,8 +197,8 @@ function Header() {
                 margin="0 4px 0 0"
               />
             </Path>
-          </MenuItem>
-          <MenuItem size="10px" weight="500" height="30px" width="80px">
+          </Item>
+          <Item size="10px" weight="500" height="30px" width="80px">
             <Path url="/" text="MY CART">
               <Image
                 src={cart}
@@ -212,8 +208,8 @@ function Header() {
                 margin="0 4px 0 0"
               />
             </Path>
-          </MenuItem>
-          <MenuItem size="10px" weight="500" height="30px">
+          </Item>
+          <Item size="10px" weight="500" height="30px">
             {loginState ? (
               <Button
                 width="70px"
@@ -236,7 +232,7 @@ function Header() {
                 </Path>
               </>
             )}
-          </MenuItem>
+          </Item>
         </MenuList>
       </FlexBox>
       <FlexBox
@@ -247,44 +243,19 @@ function Header() {
         alignItems="flex-end"
       >
         <MenuList itemNum="5" columnGap="40px">
-          <MenuItem
-            size="39px"
-            weight="600"
-            hoverBorderBottom="6px solid #7001f7"
-            paddingBottom="6px"
-          >
+          <MenuItem size="39px" weight="600" paddingBottom="6px">
             <Path url="/" children="SHOES" height="40px" />
           </MenuItem>
-          <MenuItem
-            size="39px"
-            weight="600"
-            hoverBorderBottom="6px solid #7001f7"
-            paddingBottom="6px"
-          >
+          <MenuItem size="39px" weight="600" paddingBottom="6px">
             <Path url="/" children="HEADWEAR" height="40px" />
           </MenuItem>
-          <MenuItem
-            size="39px"
-            weight="600"
-            hoverBorderBottom="6px solid #7001f7"
-            paddingBottom="6px"
-          >
+          <MenuItem size="39px" weight="600" paddingBottom="6px">
             <Path url="/" children="WE'ARE" height="40px" />
           </MenuItem>
-          <MenuItem
-            size="18px"
-            weight="500"
-            hoverBorderBottom="6px solid #7001f7"
-            paddingBottom="6px"
-          >
+          <MenuItem size="18px" weight="500" paddingBottom="6px">
             <Path url="/" children="LOOKBOOK" />
           </MenuItem>
-          <MenuItem
-            size="18px"
-            weight="500"
-            hoverBorderBottom="6px solid #7001f7"
-            paddingBottom="6px"
-          >
+          <MenuItem size="18px" weight="500" paddingBottom="6px">
             <Path url="/" children="EVENT" />
           </MenuItem>
         </MenuList>
@@ -326,7 +297,7 @@ const Container = styled.div<{
   align-items: center;
   scroll-behavior: smooth;
   /* NOTE: 애니메이션 좀 생각해보기... 이게 최선인가.. 흠 */
-  transition-duration: 0.2s;
+  transition-duration: 0.4s;
   transition-timing-function: ease-out;
   ${(props) => (props.transform ? `transform: ${props.transform};` : "")};
   ${(props) => (props.position ? `position: ${props.position};` : "")};
@@ -354,7 +325,7 @@ const MenuList = styled.ul<{
   ${(props) => (props.columnGap ? `column-gap:${props.columnGap}` : "")};
 `;
 
-const MenuItem = styled.li<{
+const Item = styled.li<{
   size?: string;
   weight?: string;
   width?: string;
