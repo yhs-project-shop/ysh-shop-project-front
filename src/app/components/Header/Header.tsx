@@ -97,7 +97,7 @@ function Header() {
       position="sticky"
       top="0"
       borderBottom="2px solid rgba(0, 0, 0, 0.6)"
-      transform="translateY(-100px)"
+      transform="translateY(-120px)"
     >
       <FlexBox
         width="1024px"
