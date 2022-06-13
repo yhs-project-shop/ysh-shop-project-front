@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import main from "../../../assets/main.png";
 import { Image } from "../../components";
+import { productActions } from "../../redux/modules/product";
+import main from "../../../assets/main_main.webp";
+import ready from "../../../assets/main_ready.webp";
+import youth from "../../../assets/main_youth.webp";
 
 function HomeScreen() {
   // prop destruction
 
   // lib hooks
+  const dispatch = useDispatch();
 
   // state, ref, querystring hooks
 
@@ -17,27 +22,25 @@ function HomeScreen() {
   // calculated values
 
   // effects
+  useEffect(() => {
+    dispatch(productActions.getAllDB());
+    dispatch(productActions.getOneDB(14));
+  }, []);
 
   // handlers
 
   return (
     <StyledDiv>
       <Image src={main} alt="Tend 신발 메인 이미지" width="100%" />
+      <Content1>
+        <Item />
+        <Item />
+      </Content1>
       <Content2>
-        <Item2 />
-        <Item2 />
-        <Item2 />
-        <Item2 />
+        <Item />
+        <Item />
+        <Item />
       </Content2>
-      <Content3>
-        <Item3 />
-        <Item3 />
-      </Content3>
-      <Content4>
-        <Item4 />
-        <Item4 />
-        <Item4 />
-      </Content4>
     </StyledDiv>
   );
 }
@@ -48,41 +51,23 @@ const StyledDiv = styled.div`
   height: auto;
 `;
 
-const Item2 = styled.div`
+const Item = styled.div`
   border: 2px solid black;
 `;
 
-const Item3 = styled.div`
-  border: 2px solid black;
-`;
-
-const Item4 = styled.div`
-  border: 2px solid black;
-`;
-
-const Content2 = styled.div`
+const Content = styled.div`
   display: grid;
-  height: 680px;
-  grid-template-columns: repeat(auto-fill, minmax(25%, auto));
   grid-template-rows: repeat(auto, 1fr);
   grid-auto-flow: dense;
   place-items: stretch stretch;
 `;
-const Content3 = styled.div`
-  display: grid;
+const Content1 = styled(Content)`
   height: 680px;
   grid-template-columns: repeat(auto-fill, minmax(50%, auto));
-  grid-template-rows: repeat(auto, 1fr);
-  grid-auto-flow: dense;
-  place-items: stretch stretch;
 `;
-const Content4 = styled.div`
-  display: grid;
+const Content2 = styled(Content)`
   height: 400px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto, 1fr);
-  grid-auto-flow: dense;
-  place-items: stretch stretch;
 `;
 
 export { HomeScreen };
