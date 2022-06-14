@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Button, FlexBox, Image, Text } from "../../components";
-import video from "../../../assets/main.png";
 import main from "../../../assets/main_main.webp";
+import skateboard from "../../../assets/main_skateboard.webp";
 import ready from "../../../assets/main_ready.webp";
 import youth from "../../../assets/main_youth.webp";
+import max001 from "../../../assets/shoes_MAX001.webp";
+import max002 from "../../../assets/shoes_MAX002.webp";
+import max003 from "../../../assets/shoes_MAX003.webp";
 
 const DetailButton = () => {
   return (
@@ -34,6 +37,24 @@ const DetailText = () => {
   );
 };
 
+const ShoesInfo = (props: { name: string; price: string }) => {
+  return (
+    <>
+      <Text size="25px" weight="600" height="35px" margin="20px 0 0 0">
+        {props.name}
+      </Text>
+      <Text
+        size="18px"
+        color="rgba(0, 0, 0, 0.5)"
+        height="25px"
+        margin="16px 0 0 0"
+      >
+        {props.price}
+      </Text>
+    </>
+  );
+};
+
 function HomeScreen() {
   // prop destruction
 
@@ -54,12 +75,12 @@ function HomeScreen() {
   return (
     <StyledDiv>
       <Image
-        src={video}
+        src={main}
         alt="Tend 신발 메인 동영상"
         width="100%"
         margin="0 0 100px 0"
       />
-      <Image src={main} alt="Tend 신발 메인 이미지" width="100%" />
+      <Image src={skateboard} alt="Tend 신발 메인 이미지" width="100%" />
       <FlexBox
         padding="20px 0 0 0"
         height="160px"
@@ -80,6 +101,7 @@ function HomeScreen() {
       </Content1>
       <FlexBox
         padding="20px 0 0 0"
+        margin="0 0 16px 0"
         height="160px"
         direction="column"
         alignItems="center"
@@ -89,9 +111,18 @@ function HomeScreen() {
         <DetailButton />
       </FlexBox>
       <Content2>
-        <Item></Item>
-        <Item></Item>
-        <Item></Item>
+        <FlexBox direction="column">
+          <Image src={max001} alt="메인 이미지_max001" width="390px" />
+          <ShoesInfo name="MAX001" price="109,000원" />
+        </FlexBox>
+        <FlexBox direction="column">
+          <Image src={max002} alt="메인 이미지_max002" width="390px" />
+          <ShoesInfo name="MAX002" price="109,000원" />
+        </FlexBox>
+        <FlexBox direction="column">
+          <Image src={max003} alt="메인 이미지_max003" width="390px" />
+          <ShoesInfo name="MAX003" price="129,000원" />
+        </FlexBox>
       </Content2>
     </StyledDiv>
   );
@@ -101,10 +132,6 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   width: 1200px;
   height: auto;
-`;
-
-const Item = styled.div`
-  border: 1px solid black;
 `;
 
 const Content = styled.div`
