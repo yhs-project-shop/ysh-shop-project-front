@@ -53,6 +53,10 @@ function Header() {
   // query hooks
 
   // calculated values
+  const isNotFound =
+    ["/", "/signin", "/admin", "/cart", "/signup", "/products/:id"].indexOf(
+      location
+    ) === -1;
 
   // effects
   useEffect(() => {
@@ -92,7 +96,8 @@ function Header() {
   return isScroll ||
     (isSearch && !isScroll) ||
     location === "/signin" ||
-    location === "/admin" ? (
+    location === "/admin" ||
+    isNotFound ? (
     <Container
       position="sticky"
       top="0"
