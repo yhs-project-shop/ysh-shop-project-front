@@ -8,6 +8,7 @@ import youth from "../../../assets/main_youth.webp";
 import max001 from "../../../assets/shoes_MAX001.webp";
 import max002 from "../../../assets/shoes_MAX002.webp";
 import max003 from "../../../assets/shoes_MAX003.webp";
+import top from "../../../assets/icon_top.webp";
 
 const DetailButton = () => {
   return (
@@ -71,6 +72,13 @@ function HomeScreen() {
   // effects
 
   // handlers
+  const handleScroll = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <Container>
@@ -124,6 +132,19 @@ function HomeScreen() {
           <ShoesInfo name="MAX003" price="129,000원" />
         </FlexBox>
       </Content2>
+      {/* NOTE: 디자인 확정되서 다른 화면에도 적용되면 수정하기 */}
+      <Button
+        width="66px"
+        height="66px"
+        padding="0"
+        backgroundColor="transparent"
+        position="fixed"
+        right="40px"
+        bottom="100px"
+        onClick={handleScroll}
+      >
+        <Image src={top} alt="위쪽방향 화살표" width="66px" height="66px" />
+      </Button>
     </Container>
   );
 }
