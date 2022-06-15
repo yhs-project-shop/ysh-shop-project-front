@@ -143,7 +143,7 @@ function Header() {
                 <Path url="/" children="EVENT" />
               </MenuItem>
               {/* NOTE: 장바구니, 로그인 아이콘 위치 수정하기 */}
-              <Path url="/">
+              <Path url="/cart">
                 <Image
                   src={cart}
                   alt="장바구니"
@@ -221,7 +221,7 @@ function Header() {
             </Path>
           </Item>
           <Item size="10px" weight="500" height="30px" width="80px">
-            <Path url="/" text="MY CART">
+            <Path url="/cart" text="MY CART">
               <Image
                 src={cart}
                 alt="장바구니"
