@@ -73,7 +73,7 @@ function HomeScreen() {
   // handlers
 
   return (
-    <StyledDiv>
+    <Container>
       <Image
         src={main}
         alt="Tend 신발 메인 동영상"
@@ -124,11 +124,11 @@ function HomeScreen() {
           <ShoesInfo name="MAX003" price="129,000원" />
         </FlexBox>
       </Content2>
-    </StyledDiv>
+    </Container>
   );
 }
 
-const StyledDiv = styled.div`
+const Container = styled.div`
   margin: 0 auto;
   width: 1200px;
   height: auto;
