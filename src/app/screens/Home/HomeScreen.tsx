@@ -76,11 +76,11 @@ function HomeScreen() {
     <Container>
       <Image
         src={main}
-        alt="Tend 신발 메인 동영상"
+        alt="메인 이미지_뒤돌아선 사람들"
         width="100%"
-        margin="0 0 100px 0"
+        margin="0 0 200px 0"
       />
-      <Image src={skateboard} alt="Tend 신발 메인 이미지" width="100%" />
+      <Image src={skateboard} alt="메인 이미지_스케이트보드" width="100%" />
       <FlexBox
         padding="20px 0 0 0"
         height="160px"
