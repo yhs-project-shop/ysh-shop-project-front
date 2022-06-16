@@ -18,6 +18,9 @@ type ButtonProps = {
   color?: string;
   fontSize?: string;
   display?: string;
+  position?: string;
+  right?: string;
+  bottom?: string;
 };
 
 function Button(props: ButtonProps) {
@@ -70,6 +73,9 @@ const StyledButton = styled.button<ButtonProps>`
   ${(props) => (props.weight ? `font-weight: ${props.weight}` : "")};
   ${(props) => (props.fontSize ? `font-size: ${props.fontSize}` : "")};
   ${(props) => (props.display ? `display: ${props.display}` : "")};
+  ${(props) => (props.position ? `position: ${props.position}` : "")};
+  ${(props) => (props.right ? `right: ${props.right}` : "")};
+  ${(props) => (props.bottom ? `bottom: ${props.bottom}` : "")};
 `;
 
 export { Button };
