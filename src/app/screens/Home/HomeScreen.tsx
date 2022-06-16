@@ -120,15 +120,30 @@ function HomeScreen() {
       </FlexBox>
       <Content2>
         <FlexBox direction="column">
-          <Image src={max001} alt="메인 이미지_max001" width="390px" />
+          <Image
+            src={max001}
+            alt="메인 이미지_max001"
+            width="390px"
+            cursor="pointer"
+          />
           <ShoesInfo name="MAX001" price="109,000원" />
         </FlexBox>
         <FlexBox direction="column">
-          <Image src={max002} alt="메인 이미지_max002" width="390px" />
+          <Image
+            src={max002}
+            alt="메인 이미지_max002"
+            width="390px"
+            cursor="pointer"
+          />
           <ShoesInfo name="MAX002" price="109,000원" />
         </FlexBox>
         <FlexBox direction="column">
-          <Image src={max003} alt="메인 이미지_max003" width="390px" />
+          <Image
+            src={max003}
+            alt="메인 이미지_max003"
+            width="390px"
+            cursor="pointer"
+          />
           <ShoesInfo name="MAX003" price="129,000원" />
         </FlexBox>
       </Content2>
