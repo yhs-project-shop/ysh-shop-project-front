@@ -21,6 +21,7 @@ type FlexBoxProps = {
   boxSizing?: string;
   radius?: string;
   backgroundColor?: string;
+  cursor?: string;
 };
 
 function FlexBox(props: FlexBoxProps) {
@@ -53,6 +54,7 @@ FlexBox.defaultProps = {
 const StyledBox = styled.div<FlexBoxProps>`
   display: flex;
   box-sizing: border-box;
+  ${(props) => (props.cursor ? `cursor: ${props.cursor}` : "")};
   ${(props) => (props.boxSizing ? `box-sizing: ${props.boxSizing}` : "")};
   ${(props) => (props.direction ? `flex-direction: ${props.direction}` : "")};
   ${(props) =>
