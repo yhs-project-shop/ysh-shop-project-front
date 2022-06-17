@@ -30,6 +30,20 @@ function SignUpScreen() {
   // query hooks
 
   // calculated values
+  const checkMessages = {
+    true: {
+      id: "사용 가능한 아이디입니다.",
+      pwd: "사용 가능한 비밀번호입니다.",
+      pwdCheck: "비밀번호가 일치합니다.",
+      email: "사용 가능한 이메일입니다.",
+    },
+    false: {
+      id: "중복된 아이디입니다. 새로운 아이디를 입력해주세요.",
+      pwd: "영어, 숫자, 특수문자를 섞어주세요!",
+      pwdCheck: "비밀번호가 일치하지 않습니다!",
+      email: "사용 가능한 이메일이 아닙니다. 새로운 이메일을 입력해주세요.",
+    },
+  };
 
   // effects
   useEffect(() => {
@@ -59,15 +73,47 @@ function SignUpScreen() {
 
   async function handleCheck(e: React.MouseEvent<HTMLButtonElement>) {
     const name = e.currentTarget.name === "id" ? "id" : "email";
+
     console.log("axios 중복 요청에 보내는 데이터: ", {
       target: name,
       value: inputData[name],
     });
-    const response = await userRepository.dataCheck({
+
+    const response: any = await userRepository.dataCheck({
       target: name,
       value: inputData[name],
     });
-    console.log("중복확인 후 response: ", response);
+
+    console.log(response);
+
+    const result = response.data.result;
+
+    // NOTE: 더 간단히 수정하기. 객체 키 값을 변수로 적용시키고 싶음.
+    if (result) {
+      if (name === "id") {
+        setCheckMessage({
+          ...checkMessage,
+          id: checkMessages["true"][name],
+        });
+      } else {
+        setCheckMessage({
+          ...checkMessage,
+          email: checkMessages["true"][name],
+        });
+      }
+    } else {
+      if (name === "id") {
+        setCheckMessage({
+          ...checkMessage,
+          id: checkMessages["false"][name],
+        });
+      } else {
+        setCheckMessage({
+          ...checkMessage,
+          email: checkMessages["false"][name],
+        });
+      }
+    }
   }
 
   return (
@@ -150,33 +196,39 @@ function SignUpScreen() {
         <FlexBox
           width="310px"
           height="auto"
-          justifyContent="space-between"
+          direction="column"
+          justifyContent="center"
           alignItems="center"
         >
-          <Input
-            width="260px"
-            isLabel={true}
-            labelWidth="260px"
-            labelName="이메일"
-            type="email"
-            name="email"
-            placeholder="이메일"
-            onChange={handleChange}
-          />
-          <Button
-            type="button"
-            name="email"
-            width="40px"
-            height="40px"
-            fontSize="12px"
-            weight="light"
-            margin="24px 0 0 0"
-            padding="5px"
-            backgroundColor="#864fc8"
-            onClick={handleCheck}
-          >
-            중복확인
-          </Button>
+          <FlexBox justifyContent="space-between">
+            <Input
+              width="260px"
+              isLabel={true}
+              labelWidth="260px"
+              labelName="이메일"
+              type="email"
+              name="email"
+              placeholder="이메일"
+              onChange={handleChange}
+            />
+            <Button
+              type="button"
+              name="email"
+              width="40px"
+              height="40px"
+              fontSize="12px"
+              weight="light"
+              margin="24px 0 0 0"
+              padding="5px"
+              backgroundColor="#864fc8"
+              onClick={handleCheck}
+            >
+              중복확인
+            </Button>
+          </FlexBox>
+          <FlexBox width="310px" height="auto" margin="5px 0 0 0">
+            {checkMessage.email}
+          </FlexBox>
         </FlexBox>
       </FlexBox>
       <Button
