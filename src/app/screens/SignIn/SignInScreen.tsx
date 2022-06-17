@@ -36,8 +36,6 @@ function SignInScreen() {
     dispatch(userActions.signInDB(inputData));
   };
 
-  console.log(inputData);
-
   return (
     <Form
       method="post"
@@ -88,7 +86,6 @@ function SignInScreen() {
         backgroundColor="white"
         fontSize="18px"
         margin="30px auto 0"
-        type="submit"
         color="#7001f7"
         border="solid 2px #7001f7"
         radius="21.5px"
