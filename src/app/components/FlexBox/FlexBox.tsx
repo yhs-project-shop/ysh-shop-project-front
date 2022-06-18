@@ -22,6 +22,8 @@ type FlexBoxProps = {
   radius?: string;
   backgroundColor?: string;
   cursor?: string;
+  position?: string;
+  bottom?: string;
 };
 
 function FlexBox(props: FlexBoxProps) {
@@ -78,6 +80,8 @@ const StyledBox = styled.div<FlexBoxProps>`
   ${(props) => (props.margin ? `margin: ${props.margin}` : "")};
   ${(props) => (props.padding ? `padding: ${props.padding}` : "")};
   ${(props) => (props.radius ? `border-radius: ${props.radius}` : "")};
+  ${(props) => (props.position ? `position: ${props.position}` : "")};
+  ${(props) => (props.bottom ? `bottom: ${props.bottom}` : "")};
 `;
 
 export { FlexBox };
