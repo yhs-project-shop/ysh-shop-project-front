@@ -148,18 +148,25 @@ function HomeScreen() {
         </FlexBox>
       </Content2>
       {/* NOTE: 디자인 확정되서 다른 화면에도 적용되면 수정하기 */}
-      <Button
-        width="66px"
+      <FlexBox
+        width="1200px"
         height="66px"
-        padding="0"
-        backgroundColor="transparent"
+        margin="0 auto"
+        justifyContent="flex-end"
         position="fixed"
-        right="40px"
-        bottom="100px"
-        onClick={handleScroll}
+        bottom="50px"
       >
-        <Image src={top} alt="위쪽방향 화살표" width="66px" height="66px" />
-      </Button>
+        {/* NOTE: 스크롤을 내리면 그때 나타나도록 수정. opacity 속성 이용하면 될 듯. */}
+        <Button
+          width="66px"
+          height="66px"
+          padding="0"
+          backgroundColor="transparent"
+          onClick={handleScroll}
+        >
+          <Image src={top} alt="위쪽방향 화살표" width="66px" height="66px" />
+        </Button>
+      </FlexBox>
     </Container>
   );
 }
