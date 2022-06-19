@@ -318,6 +318,7 @@ const Container = styled.div<{
   flex-direction: column;
   align-items: center;
   scroll-behavior: smooth;
+  z-index: 2;
   /* NOTE: 애니메이션 좀 생각해보기... 이게 최선인가.. 흠 */
   transition-duration: 0.4s;
   transition-timing-function: ease-out;
