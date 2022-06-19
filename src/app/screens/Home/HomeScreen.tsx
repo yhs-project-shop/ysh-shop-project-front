@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Button, FlexBox, Image, Text } from "../../components";
 import main from "../../../assets/main_main.webp";
 import skateboard from "../../../assets/main_skateboard.webp";
+import shoes from "../../../assets/main_shoes.webp";
 import ready from "../../../assets/main_ready.webp";
 import youth from "../../../assets/main_youth.webp";
 import max001 from "../../../assets/shoes_MAX001.webp";
@@ -19,7 +20,7 @@ const DetailButton = () => {
       height="43px"
       fontSize="18px"
       radius="21.5px"
-      margin="16px 0 0 0"
+      margin="20px 0 0 0"
       padding="9px auto 8px"
     >
       자세히 보기
@@ -27,15 +28,25 @@ const DetailButton = () => {
   );
 };
 
-const DetailText = () => {
-  return (
-    <>
-      <Text size="12px">우리가 원하는 것.</Text>
-      <Text size="12px">
-        자유로움 너머로 나아가는 당신의 여정을 텐드가 함께합니다.
+const DetailText = (props: { text?: string }) => {
+  if (props.text) {
+    return (
+      <Text size="16px" weight="600">
+        {props.text}
       </Text>
-    </>
-  );
+    );
+  } else {
+    return (
+      <>
+        <Text size="16px" weight="600">
+          우리가 원하는 것.
+        </Text>
+        <Text size="16px" weight="600">
+          자유로움 너머로 나아가는 당신의 여정을 텐드가 함께합니다.
+        </Text>
+      </>
+    );
+  }
 };
 
 const ShoesInfo = (props: { name: string; price: string }) => {
@@ -53,6 +64,36 @@ const ShoesInfo = (props: { name: string; price: string }) => {
         {props.price}
       </Text>
     </>
+  );
+};
+
+const CategoryLink = (props: { name: string }) => {
+  return (
+    <FlexBox
+      width="131px"
+      height="86px"
+      direction="column"
+      alignItems="center"
+      justifyContent="space-between"
+      position="relative"
+      bottom="122.5px"
+      left="48px"
+    >
+      <Text size="25px" weight="600" height="31px">
+        {props.name}
+      </Text>
+      <Button
+        width="131px"
+        height="43px"
+        fontSize="18px"
+        padding="7px 32px 10px 33px"
+        radius="21.5px"
+        color="#000"
+        backgroundColor="white"
+      >
+        구매하기
+      </Button>
+    </FlexBox>
   );
 };
 
@@ -90,7 +131,7 @@ function HomeScreen() {
       />
       <Image src={skateboard} alt="메인 이미지_스케이트보드" width="100%" />
       <FlexBox
-        padding="20px 0 0 0"
+        padding="25px 0 0 0"
         height="160px"
         direction="column"
         alignItems="center"
@@ -99,17 +140,39 @@ function HomeScreen() {
         <DetailText />
         <DetailButton />
       </FlexBox>
+      <Image
+        src={shoes}
+        alt="메인 이미지_운동화"
+        width="100%"
+        margin="40px 0 0 0"
+      />
+      <FlexBox
+        padding="25px 0 0 0"
+        height="160px"
+        direction="column"
+        alignItems="center"
+        boxSizing="border-box"
+      >
+        <DetailText text="텐드의 스타일로 나를 표현해보세요." />
+        <DetailButton />
+      </FlexBox>
       <Content1>
-        <Image
-          src={ready}
-          alt="메인 이미지_준비자세를 취한 사람"
-          width="592px"
-        />
-        <Image src={youth} alt="메인 이미지_청년들" width="592px" />
+        <div>
+          <Image
+            src={ready}
+            alt="메인 이미지_준비자세를 취한 사람"
+            width="592px"
+          />
+          <CategoryLink name="스포츠" />
+        </div>
+        <div>
+          <Image src={youth} alt="메인 이미지_청년들" width="592px" />
+          <CategoryLink name="라이프스타일" />
+        </div>
       </Content1>
       <FlexBox
-        padding="20px 0 0 0"
-        margin="0 0 16px 0"
+        padding="32px 0 0 0"
+        margin="0 0 47px 0"
         height="160px"
         direction="column"
         alignItems="center"
@@ -186,6 +249,7 @@ const Content = styled.div`
 `;
 const Content1 = styled(Content)`
   height: 592px;
+  margin-top: 51px;
   grid-template-columns: repeat(2, 592px);
 `;
 const Content2 = styled(Content)`
