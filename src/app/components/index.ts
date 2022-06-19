@@ -17,3 +17,4 @@ export * from "./QuantitySelect";
 export * from "./TextBox";
 export * from "./ImageUpload";
 export * from "./Text";
+export * from "./ProductBox";
