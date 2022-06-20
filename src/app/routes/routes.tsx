@@ -19,15 +19,17 @@ function AppRouter() {
     // ConnectedRouter를 사용해서 리덕스와 같은 history를 사용하도록 해줌!
     <ConnectedRouter history={history}>
       <Header />
-      <Switch>
-        <Route path="/" exact component={HomeScreen} />
-        <Route path="/admin" component={AdminScreen} />
-        <Route path="/cart" component={CartsScreen} />
-        <Route path="/products/:id" component={ProductsScreen} />
-        <Route path="/signin" component={SignInScreen} />
-        <Route path="/signup" component={SignUpScreen} />
-        <Route component={NotFoundScreen} />
-      </Switch>
+      <div id="content">
+        <Switch>
+          <Route path="/" exact component={HomeScreen} />
+          <Route path="/admin" component={AdminScreen} />
+          <Route path="/cart" component={CartsScreen} />
+          <Route path="/products/:id" component={ProductsScreen} />
+          <Route path="/signin" component={SignInScreen} />
+          <Route path="/signup" component={SignUpScreen} />
+          <Route component={NotFoundScreen} />
+        </Switch>
+      </div>
     </ConnectedRouter>
   );
 }
