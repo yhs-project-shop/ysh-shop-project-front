@@ -12,7 +12,6 @@ type ImageProps = {
 
 function Image(props: ImageProps) {
   // prop destruction
-  const { src } = props;
 
   // lib hooks
 
@@ -27,8 +26,12 @@ function Image(props: ImageProps) {
   // effects
 
   // handlers
-  return <StyledImg loading="lazy" {...props} src={src} />;
+  return <StyledImg loading="lazy" {...props} />;
 }
+
+Image.defaultProps = {
+  width: "100%",
+};
 
 const StyledImg = styled.img<ImageProps>`
   ${(props) => (props.cursor ? `cursor: ${props.cursor}` : "")};
