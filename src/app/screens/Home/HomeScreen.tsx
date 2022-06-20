@@ -127,10 +127,9 @@ function HomeScreen() {
       <Image
         src={main}
         alt="메인 이미지_뒤돌아선 사람들"
-        width="100%"
         margin="0 0 200px 0"
       />
-      <Image src={skateboard} alt="메인 이미지_스케이트보드" width="100%" />
+      <Image src={skateboard} alt="메인 이미지_스케이트보드" />
       <FlexBox
         padding="25px 0 0 0"
         height="160px"
@@ -141,12 +140,7 @@ function HomeScreen() {
         <DetailText />
         <DetailButton />
       </FlexBox>
-      <Image
-        src={shoes}
-        alt="메인 이미지_운동화"
-        width="100%"
-        margin="40px 0 0 0"
-      />
+      <Image src={shoes} alt="메인 이미지_운동화" margin="40px 0 0 0" />
       <FlexBox
         padding="25px 0 0 0"
         height="160px"
@@ -213,7 +207,7 @@ function HomeScreen() {
       </Content2>
       {/* NOTE: 디자인 확정되서 다른 화면에도 적용되면 수정하기 */}
       <FlexBox
-        width="1200px"
+        width={theme.contentWidth}
         height="66px"
         margin="0 auto"
         justifyContent="flex-end"
