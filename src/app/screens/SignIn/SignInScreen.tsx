@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Button, FlexBox, Input, Title } from "../../components";
 import { Form, Text } from "../../components";
 import { userActions } from "../../redux/modules/user";
+import { theme } from "../../../style";
 
 function SignInScreen() {
   // prop destruction
@@ -44,7 +45,7 @@ function SignInScreen() {
       height="400px"
       margin=" 30px auto"
     >
-      <Title type="h1" size="39px" color="#7001f7">
+      <Title type="h1" size="39px" color={theme.mainColor}>
         LOGIN
       </Title>
       <FlexBox
@@ -72,7 +73,7 @@ function SignInScreen() {
         </Text>
       </FlexBox>
       <Button
-        backgroundColor="#7001f7"
+        backgroundColor={theme.mainColor}
         fontSize="18px"
         margin="30px auto 0"
         type="submit"
@@ -86,8 +87,8 @@ function SignInScreen() {
         backgroundColor="white"
         fontSize="18px"
         margin="30px auto 0"
-        color="#7001f7"
-        border="solid 2px #7001f7"
+        color={theme.mainColor}
+        border={`solid 2px ${theme.mainColor}`}
         radius="21.5px"
       >
         회원가입

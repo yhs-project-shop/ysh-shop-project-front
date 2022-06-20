@@ -15,6 +15,7 @@ import mypage from "../../../assets/icon_profile.webp";
 import like from "../../../assets/icon_like.webp";
 import cart from "../../../assets/icon_cart.webp";
 import signin from "../../../assets/icon_signin.webp";
+import { theme } from "../../../style";
 
 const MenuItem = (props: {
   size?: string;
@@ -26,7 +27,7 @@ const MenuItem = (props: {
     <Item
       size={props.size}
       weight={props.weight}
-      hoverBorderBottom="6px solid #7001f7"
+      hoverBorderBottom={`6px solid ${theme.mainColor}`}
       paddingBottom={props.paddingBottom ? props.paddingBottom : ""}
     >
       {props.children}
@@ -378,8 +379,8 @@ const Item = styled.li<{
 const SearchInput = styled(Input)`
   &:hover,
   &:focus {
-    border-color: #7001f7;
-    outline: #7001f7 solid 0.5px;
+    border-color: ${(props) => props.theme.mainColor};
+    outline: ${(props) => `${props.theme.mainColor} solid 0.5px`};
   }
 `;
 

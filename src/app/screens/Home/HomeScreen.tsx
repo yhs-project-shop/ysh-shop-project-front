@@ -10,12 +10,13 @@ import max001 from "../../../assets/shoes_MAX001.webp";
 import max002 from "../../../assets/shoes_MAX002.webp";
 import max003 from "../../../assets/shoes_MAX003.webp";
 import top from "../../../assets/icon_top.webp";
+import { theme } from "../../../style";
 
 const DetailButton = () => {
   return (
     <Button
       type="button"
-      backgroundColor="#7001f7"
+      backgroundColor={theme.mainColor}
       width="170px"
       height="43px"
       fontSize="18px"
