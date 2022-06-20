@@ -11,6 +11,7 @@ const color = {
 
 export const theme = {
   mainColor: color.purple,
+  contentWidth: "1200px",
   mobile: `(max-width: ${size.mobile})`,
   tablet: `(max-width: ${size.tablet})`,
   laptop: `(max-width: ${size.laptop})`,
