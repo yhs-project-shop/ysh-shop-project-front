@@ -123,7 +123,7 @@ function HomeScreen() {
   };
 
   return (
-    <Container>
+    <>
       <Image
         src={main}
         alt="메인 이미지_뒤돌아선 사람들"
@@ -231,15 +231,9 @@ function HomeScreen() {
           <Image src={top} alt="위쪽방향 화살표" width="66px" height="66px" />
         </Button>
       </FlexBox>
-    </Container>
+    </>
   );
 }
-
-const Container = styled.div`
-  margin: 0 auto;
-  width: 1200px;
-  height: auto;
-`;
 
 const Content = styled.div`
   display: grid;
