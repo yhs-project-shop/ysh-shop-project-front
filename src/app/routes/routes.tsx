@@ -12,26 +12,22 @@ import {
   NotFoundScreen,
 } from "../screens";
 import { Header } from "../components";
-import theme from "../../style/theme";
-import { ThemeProvider } from "styled-components";
 
 function AppRouter() {
   return (
     // 원래 BrowserRouter와 Route를 사용해서 컴포넌트에 주입하던 history를
     // ConnectedRouter를 사용해서 리덕스와 같은 history를 사용하도록 해줌!
     <ConnectedRouter history={history}>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <Switch>
-          <Route path="/" exact component={HomeScreen} />
-          <Route path="/admin" component={AdminScreen} />
-          <Route path="/cart" component={CartsScreen} />
-          <Route path="/products/:id" component={ProductsScreen} />
-          <Route path="/signin" component={SignInScreen} />
-          <Route path="/signup" component={SignUpScreen} />
-          <Route component={NotFoundScreen} />
-        </Switch>
-      </ThemeProvider>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={HomeScreen} />
+        <Route path="/admin" component={AdminScreen} />
+        <Route path="/cart" component={CartsScreen} />
+        <Route path="/products/:id" component={ProductsScreen} />
+        <Route path="/signin" component={SignInScreen} />
+        <Route path="/signup" component={SignUpScreen} />
+        <Route component={NotFoundScreen} />
+      </Switch>
     </ConnectedRouter>
   );
 }
