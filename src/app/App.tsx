@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../style";
+import GlobalStyle from "../style/global";
 import { AppRouter } from "./routes";
 
 function App() {
@@ -21,9 +22,12 @@ function App() {
   // handlers
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppRouter />
-    </ThemeProvider>
+    <>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <AppRouter />
+      </ThemeProvider>
+    </>
   );
 }
 
