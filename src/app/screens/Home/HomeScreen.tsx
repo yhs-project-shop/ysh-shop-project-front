@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, FlexBox, Image, Text } from "../../components";
+import { Button, FlexBox, Image, Text, ProductBox } from "../../components";
 import main from "../../../assets/main_main.webp";
 import skateboard from "../../../assets/main_skateboard.webp";
 import shoes from "../../../assets/main_shoes.webp";
@@ -48,24 +48,6 @@ const DetailText = (props: { text?: string }) => {
       </>
     );
   }
-};
-
-const ShoesInfo = (props: { name: string; price: string }) => {
-  return (
-    <>
-      <Text size="25px" weight="600" height="35px" margin="20px 0 0 0">
-        {props.name}
-      </Text>
-      <Text
-        size="18px"
-        color="rgba(0, 0, 0, 0.5)"
-        height="25px"
-        margin="16px 0 0 0"
-      >
-        {props.price}
-      </Text>
-    </>
-  );
 };
 
 const CategoryLink = (props: { name: string }) => {
@@ -177,33 +159,24 @@ function HomeScreen() {
         <DetailButton />
       </FlexBox>
       <Content2>
-        <FlexBox direction="column">
-          <Image
-            src={max001}
-            alt="메인 이미지_max001"
-            width="390px"
-            cursor="pointer"
-          />
-          <ShoesInfo name="MAX001" price="109,000원" />
-        </FlexBox>
-        <FlexBox direction="column">
-          <Image
-            src={max002}
-            alt="메인 이미지_max002"
-            width="390px"
-            cursor="pointer"
-          />
-          <ShoesInfo name="MAX002" price="109,000원" />
-        </FlexBox>
-        <FlexBox direction="column">
-          <Image
-            src={max003}
-            alt="메인 이미지_max003"
-            width="390px"
-            cursor="pointer"
-          />
-          <ShoesInfo name="MAX003" price="129,000원" />
-        </FlexBox>
+        <ProductBox
+          image={max001}
+          name="MAX001"
+          alt="메인 이미지_max001"
+          price="109,000원"
+        />
+        <ProductBox
+          image={max002}
+          name="MAX002"
+          alt="메인 이미지_max002"
+          price="109,000원"
+        />
+        <ProductBox
+          image={max003}
+          name="MAX003"
+          alt="메인 이미지_max003"
+          price="129,000원"
+        />
       </Content2>
       {/* NOTE: 디자인 확정되서 다른 화면에도 적용되면 수정하기 */}
       <FlexBox
