@@ -10,6 +10,7 @@ import {
   SignInScreen,
   SignUpScreen,
   NotFoundScreen,
+  ShoesScreen,
 } from "../screens";
 import { Header } from "../components";
 
@@ -24,6 +25,7 @@ function AppRouter() {
           <Route path="/" exact component={HomeScreen} />
           <Route path="/admin" component={AdminScreen} />
           <Route path="/cart" component={CartsScreen} />
+          <Route path="/shoes" component={ShoesScreen} />
           <Route path="/products/:id" component={ProductsScreen} />
           <Route path="/signin" component={SignInScreen} />
           <Route path="/signup" component={SignUpScreen} />
