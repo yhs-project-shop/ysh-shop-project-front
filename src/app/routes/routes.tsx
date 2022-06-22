@@ -13,6 +13,7 @@ import {
   ShoesScreen,
 } from "../screens";
 import { Header } from "../components";
+import { HeadWearScreen } from "../screens/HeadWear";
 
 function AppRouter() {
   return (
@@ -26,6 +27,7 @@ function AppRouter() {
           <Route path="/admin" component={AdminScreen} />
           <Route path="/cart" component={CartsScreen} />
           <Route path="/shoes" component={ShoesScreen} />
+          <Route path="/headwear" component={HeadWearScreen} />
           <Route path="/products/:id" component={ProductsScreen} />
           <Route path="/signin" component={SignInScreen} />
           <Route path="/signup" component={SignUpScreen} />
