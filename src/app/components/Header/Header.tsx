@@ -132,7 +132,7 @@ function Header() {
                 <Path url="/shoes" children="SHOES" height="40px" />
               </MenuItem>
               <MenuItem size="25px" weight="600">
-                <Path url="/" children="HEADWEAR" height="40px" />
+                <Path url="/headwear" children="HEADWEAR" height="40px" />
               </MenuItem>
               <MenuItem size="25px" weight="600">
                 <Path url="/" children="WE'ARE" height="40px" />
@@ -270,7 +270,7 @@ function Header() {
             <Path url="/shoes" children="SHOES" height="40px" />
           </MenuItem>
           <MenuItem size="39px" weight="600" paddingBottom="6px">
-            <Path url="/" children="HEADWEAR" height="40px" />
+            <Path url="/headwear" children="HEADWEAR" height="40px" />
           </MenuItem>
           <MenuItem size="39px" weight="600" paddingBottom="6px">
             <Path url="/" children="WE'ARE" height="40px" />
