@@ -9,6 +9,7 @@ function Path(props: {
   height?: string;
   borderBottom?: string;
   margin?: string;
+  color?: string;
 }) {
   // prop destruction
   const { url, children, text } = props;
@@ -39,6 +40,10 @@ function Path(props: {
   );
 }
 
+Path.defaultProps = {
+  color: "#000",
+};
+
 const StyledLink = styled.div<{
   height?: string;
   margin?: string;
@@ -51,10 +56,10 @@ const StyledLink = styled.div<{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
   text-decoration: none;
   ${(props) => (props.height ? `height: ${props.height}` : "")};
   ${(props) => (props.margin ? `margin: ${props.margin}` : "")};
+  ${(props) => (props.color ? `color: ${props.color}` : "")};
 `;
 
 export { Path };
